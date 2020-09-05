@@ -18,7 +18,9 @@ app.use(helmet());
 
 //Configurando la base de datos
 var mongoose = require('mongoose');
-var mongoDb = 'mongodb://lib:12345678@localhost:27017/libreria';
+//var mongoDb = 'mongodb://lib:12345678@localhost:27017/libreria';
+var dev_db_url = 'mongodb+srv://lib:12345678fe15cd45454b.ngrok.io/libreriay?retryWrites=true';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDb, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
